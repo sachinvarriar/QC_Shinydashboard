@@ -10,17 +10,30 @@ shinyUI(fluidPage(
     dashboardHeader(title = "QC Tool"),
     dashboardSidebar(
       sidebarMenu(
-        menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard"))
+        menuItem("Single Sample Xbar-chart", tabName = "singlexbar", icon = icon("dashboard")),
+        menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("dashboard"))
       )
     ),
-    dashboardBody(fileInput('datafile', 'Choose CSV file',
+    dashboardBody(tabItems(
+      tabItem(tabName = "singlexbar", fileInput('datafile', 'Choose CSV file',
                             accept=c('text/csv', 'text/comma-separated-values,text/plain')),
                   uiOutput("Select Columns"),
                   #actionButton("plot", "Plot"),
-            h2("Plot of UCL and LCL"),
+            h2("Plot of Single Sample Xbar"),
             selectInput('x', 'X Variable',''),
-            tableOutput('content'),
-    plotOutput("Plot"))
+            #tableOutput('content'),
+    plotOutput("Plot1")),
+
+    tabItem(tabName = "Multixbar", fileInput('datafile', 'Choose CSV file',
+                                                                   accept=c('text/csv', 'text/comma-separated-values,text/plain')),
+                                 #uiOutput("Select Columns"),
+                                 #actionButton("plot", "Plot"),
+                                 h2("Plot of Multiple Xbar"),
+                                 #selectInput('x', 'X Variable',''),
+                                 #tableOutput('content'),
+                                 plotOutput("Plot2")
+   )
+    ))
 
     )))
 
