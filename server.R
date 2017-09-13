@@ -63,7 +63,7 @@ shinyServer(function(input, output,session) {
 
     # I Since you have two inputs I decided to make a scatterplot
     x2 <- filedata()[, c(input$x)]
-    qcc(x2, type = "xbar.one")
+    qcc(x2, type = "xbar.one", title="Single Sample X-bar Chart")
     #boxplot(x2)
 
   })
@@ -82,7 +82,7 @@ shinyServer(function(input, output,session) {
 
     # I Since you have two inputs I decided to make a scatterplot
     x2 <- filedata2()[,1:ncol(filedata2())]
-    qcc(x2, type = "xbar")
+    qcc(x2, type = "xbar",title= "Multiple Sample X-bar Chart")
     #boxplot(x2)
 
   })

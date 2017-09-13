@@ -28,7 +28,7 @@ shinyUI(fluidPage(
                                                                    accept=c('text/csv', 'text/comma-separated-values,text/plain')),
                                  #uiOutput("Select Columns"),
                                  #actionButton("plot", "Plot"),
-                                 h2("Plot of Multiple Xbar"),
+                                 h2("Plot of Multiple Sample Xbar"),
                                  #selectInput('x', 'X Variable',''),
                                  #tableOutput('content'),
                                  plotOutput("Plot2")
