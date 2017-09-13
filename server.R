@@ -14,8 +14,8 @@ shinyServer(function(input, output,session) {
 
 
   filedata <- reactive({
-    req(input$datafile)
-    infile <- input$datafile
+    req(input$datafile1)
+    infile <- input$datafile1
     if (is.null(infile)) {
       # User has not uploaded a file yet
       return(NULL)
@@ -30,8 +30,8 @@ shinyServer(function(input, output,session) {
   })
 
   filedata2 <- reactive({
-    req(input$datafile)
-    infile <- input$datafile
+    req(input$datafile2)
+    infile <- input$datafile2
     if (is.null(infile)) {
       # User has not uploaded a file yet
       return(NULL)

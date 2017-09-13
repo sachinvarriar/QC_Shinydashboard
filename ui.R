@@ -15,7 +15,7 @@ shinyUI(fluidPage(
       )
     ),
     dashboardBody(tabItems(
-      tabItem(tabName = "singlexbar", fileInput('datafile', 'Choose CSV file',
+      tabItem(tabName = "singlexbar", fileInput('datafile1', 'Choose CSV file',
                             accept=c('text/csv', 'text/comma-separated-values,text/plain')),
                   uiOutput("Select Columns"),
                   #actionButton("plot", "Plot"),
@@ -24,7 +24,7 @@ shinyUI(fluidPage(
             #tableOutput('content'),
     plotOutput("Plot1")),
 
-    tabItem(tabName = "Multixbar", fileInput('datafile', 'Choose CSV file',
+    tabItem(tabName = "Multixbar", fileInput('datafile2', 'Choose CSV file',
                                                                    accept=c('text/csv', 'text/comma-separated-values,text/plain')),
                                  #uiOutput("Select Columns"),
                                  #actionButton("plot", "Plot"),
