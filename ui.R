@@ -6,13 +6,14 @@ library(qcc)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
-  dashboardPage(
+  dashboardPage(skin="yellow",
     dashboardHeader(title = "QC Tool"),
     dashboardSidebar(
       sidebarMenu(
         menuItem("Single Sample Xbar-chart", tabName = "singlexbar", icon = icon("line-chart")),
         menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("line-chart")),
-        menuItem("Multi Sample R-chart", tabName = "MultiR", icon = icon("line-chart"))
+        menuItem("Multi Sample R-chart", tabName = "MultiR", icon = icon("line-chart")),
+        menuItem("EWMA-chart", tabName = "EWMA", icon = icon("line-chart"))
       )
     ),
     dashboardBody(tabItems(
@@ -36,13 +37,23 @@ shinyUI(fluidPage(
    ),
    tabItem(tabName = "MultiR", fileInput('datafile3', 'Choose CSV file',
                                             accept=c('text/csv', 'text/comma-separated-values,text/plain')),
-           #uiOutput("Select Columns"),
+          #uiOutput("Select Columns"),
            #actionButton("plot", "Plot"),
            h2("Plot of Multiple Sample R"),
            #selectInput('x', 'X Variable',''),
            #tableOutput('content'),
            plotOutput("Plot3")
+   ),
+   tabItem(tabName = "EWMA", fileInput('datafile4', 'Choose CSV file',
+                                         accept=c('text/csv', 'text/comma-separated-values,text/plain')),
+           #uiOutput("Select Columns"),
+           #actionButton("plot", "Plot"),
+           h2("Plot of EWMA"),
+           #selectInput('x', 'X Variable',''),
+           #tableOutput('content'),
+           plotOutput("Plot4")
    )
+   
     ))
 
     )))
