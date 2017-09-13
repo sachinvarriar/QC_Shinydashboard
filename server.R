@@ -86,4 +86,28 @@ shinyServer(function(input, output,session) {
     #boxplot(x2)
 
   })
+
+  filedata3 <- reactive({
+    req(input$datafile3)
+    infile <- input$datafile3
+    if (is.null(infile)) {
+      # User has not uploaded a file yet
+      return(NULL)
+    }
+    df<-read.csv(infile$datapath)
+    updateSelectInput(session, inputId = 'x', label = 'X Variable',
+                      choices = names(df), selected = names(df))
+    #updateSelectInput(session, inputId = 'ycol', label = 'Y Variable',
+    # choices = names(df), selected = names(df)[2])
+
+    return(df)
+  })
+
+  output$Plot3 <- renderPlot({
+    # I Since you have two inputs I decided to make a scatterplot
+    x2 <- filedata3()[,1:ncol(filedata3())]
+    qcc(x2, type = "R",title= "Multiple Sample R Chart")
+    #boxplot(x2)
+
+  })
 })

@@ -11,7 +11,8 @@ shinyUI(fluidPage(
     dashboardSidebar(
       sidebarMenu(
         menuItem("Single Sample Xbar-chart", tabName = "singlexbar", icon = icon("line-chart")),
-        menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("line-chart"))
+        menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("line-chart")),
+        menuItem("Multi Sample R-chart", tabName = "MultiR", icon = icon("line-chart"))
       )
     ),
     dashboardBody(tabItems(
@@ -32,6 +33,15 @@ shinyUI(fluidPage(
                                  #selectInput('x', 'X Variable',''),
                                  #tableOutput('content'),
                                  plotOutput("Plot2")
+   ),
+   tabItem(tabName = "MultiR", fileInput('datafile3', 'Choose CSV file',
+                                            accept=c('text/csv', 'text/comma-separated-values,text/plain')),
+           #uiOutput("Select Columns"),
+           #actionButton("plot", "Plot"),
+           h2("Plot of Multiple Sample R"),
+           #selectInput('x', 'X Variable',''),
+           #tableOutput('content'),
+           plotOutput("Plot3")
    )
     ))
 
