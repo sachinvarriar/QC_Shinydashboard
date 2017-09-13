@@ -10,8 +10,8 @@ shinyUI(fluidPage(
     dashboardHeader(title = "QC Tool"),
     dashboardSidebar(
       sidebarMenu(
-        menuItem("Single Sample Xbar-chart", tabName = "singlexbar", icon = icon("dashboard")),
-        menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("dashboard"))
+        menuItem("Single Sample Xbar-chart", tabName = "singlexbar", icon = icon("line-chart")),
+        menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("line-chart"))
       )
     ),
     dashboardBody(tabItems(
