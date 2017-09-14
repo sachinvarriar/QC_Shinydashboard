@@ -127,4 +127,37 @@ shinyServer(function(input, output,session) {
     #boxplot(x2)
     
   })
+  
+  # filedata5 <- reactive({
+  #   req(input$datafile5)
+  #   infile <- input$datafile5
+  #   if (is.null(infile)) {
+  #     # User has not uploaded a file yet
+  #     return(NULL)
+  #   }
+  #   df<-read.csv(infile$datapath)
+  #   updateSelectInput(session, inputId = 'x', label = 'Dependent Variable',
+  #                     choices = names(df), selected = names(df))
+  #   updateSelectInput(session, inputId = 'y', label = 'Independent Variable',
+  #                     choices = names(df), selected = names(df))
+  #   
+  #   return(df)
+  # })
+  # 
+  # 
+  # output$ei <- renderPrint({
+  #   x1 <- filedata5()[, c(input$x)]
+  #   x2 <- filedata5()[, c(input$y)]
+  #   h <- lm(x1~x2 , data=filedata5())
+  #   anova(h)
+  #   return(h)
+  # })
+  # output$Plot5 <- renderPlot({
+  #   x1 <- filedata5()[, c(input$x)]
+  #   x2 <- filedata5()[, c(input$y)]
+  #   h <- lm(x1~x2 , data=filedata5())
+  #   anova(h)
+  #   k<-TukeyHSD(h)
+  #   plot(k)
+  # })
 })

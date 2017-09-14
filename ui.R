@@ -14,6 +14,8 @@ shinyUI(fluidPage(
         menuItem("Multi Sample Xbar-chart", tabName = "Multixbar", icon = icon("line-chart")),
         menuItem("Multi Sample R-chart", tabName = "MultiR", icon = icon("line-chart")),
         menuItem("EWMA-chart", tabName = "EWMA", icon = icon("line-chart"))
+        #,
+        #menuItem("One-Way Anova", tabName = "Anova", icon = icon("calculator"))
       )
     ),
     dashboardBody(tabItems(
@@ -52,7 +54,19 @@ shinyUI(fluidPage(
            #selectInput('x', 'X Variable',''),
            #tableOutput('content'),
            plotOutput("Plot4")
-   )
+    )
+  # ,
+   # tabItem(tabName = "Anova", fileInput('datafile5', 'Choose CSV file',
+   #                                      accept=c('text/csv', 'text/comma-separated-values,text/plain')),
+   #         uiOutput("Select Columns"),
+   #         #actionButton("plot", "Plot"),
+   #         h2("Anova Results"),
+   #         selectInput('x', 'Dependent Variable',''),
+   #         selectInput('y', 'Independent Variable',''),
+   #         verbatimTextOutput("ei"),
+   #         #tableOutput('content'),
+   #         plotOutput("Plot5"))
+   # 
    
     ))
 
